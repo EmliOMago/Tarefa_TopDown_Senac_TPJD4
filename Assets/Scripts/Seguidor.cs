@@ -3,11 +3,11 @@ using UnityEngine;
 public class Seguidor : MonoBehaviour
 {
     public Transform jogador;
-    public float suavidade = 5f;
+    public float suavidade = 1.5f;
     public Vector3 offset = new Vector3(0f, 0f, -10f);
 
     [Header("Limites da Câmera")]
-    public bool usarLimites = true;
+    public bool usarLimites = false;
     public float minX = -10f;
     public float maxX = 10f;
     public float minY = -5f;
