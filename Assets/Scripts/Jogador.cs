@@ -68,14 +68,10 @@ public class Jogador : MonoBehaviour
     void RotacionarPeloMouse()
     {
         Vector3 posicaoMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Alvo = GameObject.FindWithTag("NPC");
+        
 
-        if (cutscene)
-        {
             Utils.OlharParaObjeto(transform, posicaoMouse);
 
-            return;
-        }
         //Vector3 direcao = (posicaoMouse - transform.position).normalized;
 
         //float angulo = Mathf.Atan2(direcao.y, direcao.x) * Mathf.Rad2Deg;
@@ -91,6 +87,7 @@ public class Jogador : MonoBehaviour
 
     void OlharParaNPC()
     {
+        Alvo = GameObject.FindWithTag("NPC");
         Utils.OlharParaObjeto(transform, Alvo.transform.position);
     }
 }
