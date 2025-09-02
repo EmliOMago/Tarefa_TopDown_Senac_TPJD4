@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Seguidor : MonoBehaviour
 {
-    public Transform jogador;
+    [HideInInspector]public Transform alvo;
     public float suavidade = 1.5f;
     public Vector3 offset = new Vector3(0f, 0f, -10f);
 
@@ -13,11 +13,17 @@ public class Seguidor : MonoBehaviour
     public float minY = -5f;
     public float maxY = 5f;
 
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        alvo = GameObject.FindWithTag("Player").transform;
+    }
+
     void LateUpdate()
     {
-        if (jogador != null)
+        if (alvo != null)
         {
-            Vector3 posicaoAlvo = jogador.position + offset;
+            Vector3 posicaoAlvo = alvo.position + offset;
 
             // Aplica limites se estiver habilitado
             if (usarLimites)
